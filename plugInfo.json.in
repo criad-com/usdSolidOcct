@@ -1,0 +1,1 @@
+{"Plugins":[{"Name":"usdSolidOcct","Type":"library","Root":"..","LibraryPath":"../libusdSolidOcct@CMAKE_SHARED_LIBRARY_SUFFIX@","ResourcePath":"resources","Info":{"aeco":@AECO_METADATA@}}]}

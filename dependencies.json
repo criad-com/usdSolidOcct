@@ -1,0 +1,26 @@
+{
+  "repos": {
+    "aeco-toolchain": {
+      "repo": "aeco-toolchain",
+      "library": null,
+      "ref": "34a29f51a232ac77d5e9f55431e537c426724035"
+    },
+    "usdaeco-toolchain": {
+      "repo": "usdaeco-toolchain",
+      "library": null,
+      "ref": "v0.3.9",
+      "revision": "d8f09dfd2ddfb6e8a08a9528e90f949248d5a1c2"
+    },
+    "usdSolid": {
+      "repo": "usdSolid",
+      "library": "usdSolid",
+      "ref": "v0.1.0",
+      "revision": "71e3c8dd0c08e0e629c2a4d3da4d1256f4316ac6"
+    },
+    "upstream": {
+      "repo": "OpenUSD",
+      "library": null,
+      "ref": "d618f8ac62cefa02f6765d8e3784ea503195ce86"
+    }
+  }
+}

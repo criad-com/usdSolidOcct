@@ -1,0 +1,271 @@
+{
+  "derivedTrims/testConeNoPcurves.usda#/World/Cone#0": {
+    "issues": [
+      "Sewing left faces outside the solid shell"
+    ],
+    "vertices": 106,
+    "baseline": null
+  },
+  "derivedTrims/testCubeNoPcurves.usda#/World/Cube#0": {
+    "issues": [],
+    "vertices": 24,
+    "baseline": null
+  },
+  "derivedTrims/testCubeWithHoleNoPcurves.usda#/World/CubeWithHole#0": {
+    "issues": [],
+    "vertices": 148,
+    "baseline": null
+  },
+  "derivedTrims/testCylinderNoPcurves.usda#/World/Cylinder#0": {
+    "issues": [],
+    "vertices": 124,
+    "baseline": null
+  },
+  "derivedTrims/testDepressedPlaneNoPcurves.usda#/World/DepressedPlane#0": {
+    "issues": [
+      "Validator findings",
+      "Write split periodic faces"
+    ],
+    "vertices": 193,
+    "baseline": null
+  },
+  "derivedTrims/testFilletedCubeNoPcurves.usda#/World/FilletedCube#0": {
+    "issues": [],
+    "vertices": 508,
+    "baseline": null
+  },
+  "derivedTrims/testPlaneWithHoleNoPcurves.usda#/World/PlaneWithHole#0": {
+    "issues": [],
+    "vertices": 33,
+    "baseline": null
+  },
+  "derivedTrims/testSphereNoPcurves.usda#/World/Sphere#0": {
+    "issues": [],
+    "vertices": 314,
+    "baseline": null
+  },
+  "testAnalyticCone.usda#/World/AnCone#0": {
+    "issues": [],
+    "vertices": 66,
+    "baseline": null
+  },
+  "testAnalyticConeEdges.usda#/World/ConeEdge#0": {
+    "issues": [],
+    "vertices": 58,
+    "baseline": null
+  },
+  "testAnalyticCylinder.usda#/World/AnalyticCyl#0": {
+    "issues": [
+      "Write split periodic faces"
+    ],
+    "vertices": 56,
+    "baseline": null
+  },
+  "testAnalyticCylinderEdges.usda#/World/CylEdge#0": {
+    "issues": [],
+    "vertices": 40,
+    "baseline": null
+  },
+  "testAnalyticPlane.usda#/World/AnPlane#0": {
+    "issues": [],
+    "vertices": 4,
+    "baseline": null
+  },
+  "testAnalyticPlaneWithHole.usda#/World/AnPlaneHole#0": {
+    "issues": [],
+    "vertices": 30,
+    "baseline": 30
+  },
+  "testAnalyticSphere.usda#/World/AnSphere#0": {
+    "issues": [],
+    "vertices": 112,
+    "baseline": null
+  },
+  "testAnalyticTorus.usda#/World/AnTorus#0": {
+    "issues": [],
+    "vertices": 625,
+    "baseline": null
+  },
+  "testCone.usda#/World/Cone#0": {
+    "issues": [],
+    "vertices": 104,
+    "baseline": 104
+  },
+  "testCube.usda#/World/Cube#0": {
+    "issues": [],
+    "vertices": 24,
+    "baseline": 24
+  },
+  "testCubeBrep.usda#/World/CubeBrep#0": {
+    "issues": [
+      "Missing brep:regionCount"
+    ]
+  },
+  "testCubeWithHole.usda#/World/CubeWithHole#0": {
+    "issues": [],
+    "vertices": 148,
+    "baseline": 148
+  },
+  "testCylinder.usda#/World/Cylinder#0": {
+    "issues": [],
+    "vertices": 124,
+    "baseline": 124
+  },
+  "testDepressedPlane.usda#/World/DepressedPlane#0": {
+    "issues": [
+      "Write split periodic faces"
+    ],
+    "vertices": 122,
+    "baseline": 122
+  },
+  "testDepressedPlaneSeamSplit.usda#/World/DepressedPlane#0": {
+    "issues": [],
+    "vertices": 136,
+    "baseline": 136
+  },
+  "testFilletedCube.usda#/World/FilletedCube#0": {
+    "issues": [],
+    "vertices": 506,
+    "baseline": 496
+  },
+  "testFilletedCubeWithHole.usda#/World/FilletedCubeWithHole#0": {
+    "issues": [],
+    "vertices": 630,
+    "baseline": 620
+  },
+  "testFullPeriodSphereBand.usda#/World/SphereBand#0": {
+    "issues": [
+      "Write split periodic faces"
+    ],
+    "vertices": 179,
+    "baseline": 179
+  },
+  "testFullPeriodSphereBandSeamSplit.usda#/World/SphereBand#0": {
+    "issues": [],
+    "vertices": 196,
+    "baseline": 196
+  },
+  "testFullPeriodTorus.usda#/World/FullTorus#0": {
+    "issues": [
+      "Write split periodic faces"
+    ],
+    "vertices": 547,
+    "baseline": 547
+  },
+  "testFullPeriodTorusSeamSplit.usda#/World/FullTorus#0": {
+    "issues": [],
+    "vertices": 562,
+    "baseline": 562
+  },
+  "testFullSphere.usda#/World/FullSphere#0": {
+    "issues": [
+      "Write split periodic faces"
+    ],
+    "vertices": 168,
+    "baseline": null
+  },
+  "testMixedCurvesWithPcurves.usda#/World/MixedCurves#0": {
+    "issues": [],
+    "vertices": 18,
+    "baseline": 18
+  },
+  "testMixedSurfaces.usda#/World/MixedSurfaces#0": {
+    "issues": [],
+    "vertices": 108,
+    "baseline": 108
+  },
+  "testPlane.usda#/World/Plane#0": {
+    "issues": [],
+    "vertices": 4,
+    "baseline": 4
+  },
+  "testPlaneWithHole.usda#/World/PlaneWithHole#0": {
+    "issues": [],
+    "vertices": 33,
+    "baseline": 33
+  },
+  "testProducerCube.usda#/World/Cube#0": {
+    "issues": [],
+    "vertices": 24,
+    "baseline": 24
+  },
+  "testRealToleranceCylinder.usda#/World/RealPin#0": {
+    "issues": [
+      "Relative volume exceeds 1e-9"
+    ],
+    "vertices": 108,
+    "baseline": 108
+  },
+  "testSphere.usda#/World/Sphere#0": {
+    "issues": [],
+    "vertices": 304,
+    "baseline": 306
+  },
+  "testToolbox.usda#/World/lid___lock_pin/brep#0": {
+    "issues": [],
+    "vertices": 108,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid___handle/brep#0": {
+    "issues": [],
+    "vertices": 512,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid___lock/brep#0": {
+    "issues": [],
+    "vertices": 556,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid___lid_shell/brep#0": {
+    "issues": [],
+    "vertices": 5861,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid___lock_pin_1/brep#0": {
+    "issues": [],
+    "vertices": 108,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid___lock_1/brep#0": {
+    "issues": [],
+    "vertices": 556,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/base_shell/brep_0#0": {
+    "issues": [],
+    "vertices": 3203,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/base_shell/brep_1#0": {
+    "issues": [],
+    "vertices": 450,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid_pin/brep#0": {
+    "issues": [],
+    "vertices": 324,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid_pin_1/brep#0": {
+    "issues": [],
+    "vertices": 324,
+    "baseline": null
+  },
+  "testToolbox.usda#/World/lid_pin_2/brep#0": {
+    "issues": [],
+    "vertices": 324,
+    "baseline": null
+  },
+  "testTwoBoxes.usda#/World/TwoBoxes#0": {
+    "issues": [],
+    "vertices": 48,
+    "baseline": 48
+  },
+  "testVoidOnlySphere.usda#/World/VoidSphere#0": {
+    "issues": [
+      "Write split periodic faces"
+    ],
+    "vertices": 168,
+    "baseline": null
+  }
+}

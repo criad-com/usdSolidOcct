@@ -1,0 +1,7 @@
+out/
+build/
+result*
+flake.lock
+__pycache__/
+.pytest_cache/
+STEERING.md

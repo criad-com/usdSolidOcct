@@ -1,0 +1,40 @@
+{
+  "platform": "aarch64-darwin",
+  "check": {
+    "checks": 28,
+    "failed": 0,
+    "notRun": 0
+  },
+  "pytest": {
+    "passed": 56
+  },
+  "ctest": {
+    "nativePassed": 4,
+    "installedConsumerPassed": 1
+  },
+  "flakeCheck": {
+    "attempts": 1,
+    "status": "PASS",
+    "deploymentOverrides": true,
+    "checks": [
+      "native",
+      "installed-consumer",
+      "acceptance"
+    ]
+  },
+  "linux": {
+    "evaluation": "PASS",
+    "derivation": "z8w8wmxh2yl3p16s8fwr6yv4svb8xdfv-usdSolidOcct-0.1.0.drv",
+    "build": "NOT PROVEN",
+    "execution": "NOT PROVEN"
+  },
+  "staticOcctArchives": {
+    "closurePaths": 77,
+    "archives": 0
+  },
+  "cache": {
+    "verifiedClosurePaths": 90,
+    "configuredCachePaths": 74,
+    "upstreamCachePaths": 16
+  }
+}
