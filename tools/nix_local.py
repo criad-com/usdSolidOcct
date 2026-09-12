@@ -20,7 +20,7 @@ def arguments():
         ref = pins[name]["ref"]
         query = "ref=refs/tags/" + ref if ref.startswith("v") else "rev=" + ref
         args += ["--override-input", name, urls[name] + "?" + query]
-    args += ["--override-input", "usdaeco-toolchain/core", urls["usdaeco-core"] + "?ref=refs/tags/v0.8.4",
+    args += ["--override-input", "usdaeco-toolchain/core", urls["usdaeco-core"] + "?ref=refs/tags/v0.9.2",
              "--override-input", "aeco-toolchain/openusd", urls["openusd"] + "?rev=47154dc7b5e28df623745495a7a508b69535ba24"]
     return args
 

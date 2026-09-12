@@ -1,40 +1,78 @@
 {
-  "publishedAt": "2026-09-12T12:09:38.137706+00:00",
+  "version": "0.1.4",
+  "pins": {
+    "aeco-toolchain": {
+      "repo": "aeco-toolchain",
+      "library": null,
+      "ref": "v0.4.0",
+      "revision": "71c86d54aa1e4be180a301a089d9a40e727758cb",
+      "publicRevision": "afbea7ce2b012e55af54047311fad37339eb56df"
+    },
+    "usdaeco-toolchain": {
+      "repo": "usdaeco-toolchain",
+      "library": null,
+      "ref": "v0.3.10",
+      "revision": "59d3da5ff5114089b54efaaae38efdd7fe1b8e73",
+      "publicRevision": "6328e1b5e63f89ea87984ad240b5c3ca37974795"
+    },
+    "usdSolid": {
+      "repo": "usdSolid",
+      "library": "usdSolid",
+      "ref": "v0.1.4",
+      "revision": "8d03bd615744ffbade4527fd9c8fd7dfee99f21f"
+    },
+    "upstream": {
+      "repo": "OpenUSD",
+      "library": null,
+      "ref": "d618f8ac62cefa02f6765d8e3784ea503195ce86"
+    },
+    "upstream-schema": {
+      "repo": "OpenUSD",
+      "library": null,
+      "ref": "1f6d6d31f1cbeed452b4e1c312bf974d0519d71d"
+    },
+    "upstream-validators": {
+      "repo": "OpenUSD",
+      "library": null,
+      "ref": "152c37a46c8cb71fbe1363772f1ccffe6e91c78b"
+    }
+  },
+  "publishedAt": "2026-09-12T13:38:22.235103+00:00",
   "platform": "aarch64-darwin",
   "pushExitCode": 0,
   "verifiedClosurePaths": 90,
-  "configuredCachePaths": 74,
-  "upstreamCachePaths": 16,
+  "configuredCachePaths": 90,
+  "upstreamCachePaths": 0,
   "verification": "All closure narinfos matched local StorePath and NarHash; roots verified in the configured cache after recursive push",
   "artifacts": {
     "bridge": {
-      "store": "5zpc6ma9p0x54p2mh0qgni3xsikrxryc-usdSolidOcct-0.1.3",
-      "narHash": "sha256:0kcj2hr32hbij1wm6hcb4lflznhif1i2vc7yhxvmirsivnfw81rb",
-      "narSize": 1281464,
+      "store": "cdi7p7xzwimxny30ldyf1xb9crxl077x-usdSolidOcct-0.1.4",
+      "narHash": "sha256:15j0gha9addbhz6r6k9dv2zp1dqhybhrxdd2rhypg5370q33hh79",
+      "narSize": 1281488,
       "cache": "configured"
     },
     "schema": {
-      "store": "ff2ak92skn2ad0fm2xgkdnrbm1gkx287-usdSolid-0.1.0",
-      "narHash": "sha256:1qg4ahdwbmj8z5shcy3ia7qma841zj90rr80m9wcasavd19fprzx",
+      "store": "s4pdxqalminm63fjsr73ipdamaahiqgh-usdSolid-0.1.4",
+      "narHash": "sha256:17qbfflkkr4ripcmikmb8nv5aiw9f340w3xr3g5yq21p25cki5m8",
       "narSize": 2610320,
       "cache": "configured"
     },
     "validators": {
-      "store": "lvhvjlhkjyji5i28a92izm1hfa639y7j-usdSolidValidators-0.1.0",
-      "narHash": "sha256:1vpr19qgqfdsyzjm7lm06wpz5vsc3gwdjwpmwq1vhp56zlh5gjxx",
+      "store": "gda4ri1972ckjns3a1f10xcb80h044nw-usdSolidValidators-0.1.4",
+      "narHash": "sha256:0qcgjy2vrhxsk8dfx8iaz4yhi53gc84j1xjllslrn1r1azn7wzn7",
       "narSize": 813616,
       "cache": "configured"
     },
     "consumer": {
-      "store": "i7jscj5q84bpm4ns6lkl9krqp39vq9gf-usdSolidOcct-installed-consumer",
-      "narHash": "sha256:13z7wdsp2svk3xmr7hcrq8m7a7akqg3sasknyvk4sibbymi440qa",
+      "store": "iqkhg1n0b0hkk8d32w3w3af0qlcp5m5v-usdSolidOcct-installed-consumer",
+      "narHash": "sha256:0rpicwnkj97wccxvp8pkv0fva0gbh37kxa8x8s6c8p0mxdqcgwz9",
       "narSize": 108112,
       "cache": "configured"
     },
     "runtime": {
-      "store": "mvmfxzb6bxdpr1kbn440vhx2sidhbb2s-usdSolidOcct-runtime",
-      "narHash": "sha256:0vdz5fqs1b4c73g6skyflw88yydmwpj8fapi2wj6q792r04q03h7",
-      "narSize": 1384,
+      "store": "sa63z78yf7dj7a83d44749sj3fc43qr7-usdSolidOcct-runtime",
+      "narHash": "sha256:0fhyhab3y6r19svls5am703zw6kgp8g38akjm90hwcxiiz78z624",
+      "narSize": 1512,
       "cache": "configured"
     }
   }

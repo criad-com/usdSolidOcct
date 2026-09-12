@@ -12,6 +12,7 @@ import subprocess
 from urllib.request import urlopen
 from urllib.error import HTTPError
 from check_support import ROOT, runtime_paths
+from pin_checks import check_built_revisions
 
 
 def publish():
@@ -20,11 +21,14 @@ def publish():
         url for url in registry["substituters"] if "cache.nixos.org" not in url)
     runtime = Path(os.environ.get("USD_SOLID_OCCT_RUNTIME", ROOT / "result-runtime")).resolve()
     paths = runtime_paths()
+    pins = json.loads((ROOT / "dependencies.json").read_text())
+    check_built_revisions(paths, pins)
     roots = {key: paths[key] for key in ("bridge", "schema", "validators", "consumer")}
     roots["runtime"] = str(runtime)
     root_stores = set(roots.values())
     print("== stage: publish native runtime closure", flush=True)
-    subprocess.run(["attic", "push", "--jobs", "4", registry["cache"], *roots.values()], check=True)
+    options = ["--ignore-upstream-cache-filter"] if registry.get("pushFullClosure") else []
+    subprocess.run(["attic", "push", "--jobs", "4", *options, registry["cache"], *roots.values()], check=True)
     closure = subprocess.check_output(["nix-store", "--query", "--requisites", *roots.values()], text=True).splitlines()
 
     def verify(store):
@@ -53,6 +57,8 @@ def publish():
     with ThreadPoolExecutor(max_workers=4) as workers:
         verified = {row["store"]: row for row in workers.map(verify, closure)}
     receipt = {
+        "version": json.loads((ROOT / "library.json").read_text())["version"],
+        "pins": pins["repos"],
         "publishedAt": datetime.now(timezone.utc).isoformat(),
         "platform": "aarch64-darwin" if os.uname().sysname == "Darwin" else "x86_64-linux",
         "pushExitCode": 0, "verifiedClosurePaths": len(verified),

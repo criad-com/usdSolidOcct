@@ -1,12 +1,12 @@
 {
   "platform": "aarch64-darwin",
   "check": {
-    "checks": 28,
+    "checks": 31,
     "failed": 0,
     "notRun": 0
   },
   "pytest": {
-    "passed": 56
+    "passed": 61
   },
   "ctest": {
     "nativePassed": 4,
@@ -14,17 +14,20 @@
   },
   "flakeCheck": {
     "attempts": 1,
-    "status": "PASS",
+    "status": "INTERRUPTED",
+    "exitCode": 1,
+    "offline": true,
     "deploymentOverrides": true,
-    "checks": [
+    "evaluatedChecks": [
       "native",
       "installed-consumer",
       "acceptance"
-    ]
+    ],
+    "reportedChecks": 464,
+    "reason": "Interrupted after additional bootstrap/source derivations started; full flake acceptance is not proven"
   },
   "linux": {
-    "evaluation": "PASS",
-    "derivation": "z8w8wmxh2yl3p16s8fwr6yv4svb8xdfv-usdSolidOcct-0.1.0.drv",
+    "evaluation": "NOT RUN",
     "build": "NOT PROVEN",
     "execution": "NOT PROVEN"
   },
@@ -34,7 +37,8 @@
   },
   "cache": {
     "verifiedClosurePaths": 90,
-    "configuredCachePaths": 74,
-    "upstreamCachePaths": 16
-  }
+    "configuredCachePaths": 90,
+    "upstreamCachePaths": 0
+  },
+  "version": "0.1.4"
 }

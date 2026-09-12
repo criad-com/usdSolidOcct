@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
 """Acceptance gate: N checks, M failed."""
 import json
+import os
 from pathlib import Path
 import re
 import sys
 import subprocess
 import tempfile
+import tomllib
 
 ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT / "tools"))
 from check_support import native_script, runtime_paths, native_primitives, assert_primitive
 from source_manifest import manifest
 from corpus import measure, verify
+from pin_checks import check_pins, check_built_revisions
 
 
 def main():
@@ -21,20 +24,27 @@ def main():
         print("FAIL NativeRuntime: build .#runtime --out-link result-runtime first")
         print("1 checks, 1 failed")
         return 1
-    sys.path.insert(0, str(Path(paths["toolchain"]) / "tools"))
+    sys.path.insert(0, str(Path(os.environ.get("USDAECO_TOOLCHAIN_DIR", paths["toolchain"])) / "tools"))
     from usdaeco_check import Report, Result
     from usdaeco_check.structure import check_structure
     report = Report()
     print("== stage: repository contracts", flush=True)
-    for row in check_structure(ROOT, only=["S01", "S25", "S26"]):
+    # Shared S05 assumes family-owned URLs even for external OpenUSD sources.
+    # KitFlakeS05 enforces its tag/version rules with the upstream fork URLs.
+    for row in check_structure(ROOT, only=["S01", "S04", "S25", "S26"]):
         report.add(row)
     report.check("KitManifest", json.loads((ROOT / "library.json").read_text()) == {
-        "name": "usdSolidOcct", "version": "0.1.3", "kind": "kit", "tier": "toolchain", "licence": "MIT",
+        "name": "usdSolidOcct", "version": "0.1.4", "kind": "kit", "tier": "toolchain", "licence": "MIT",
         "requires": {"usdSolid": ">=0.1,<0.2"}})
     report.check("KitReadme", re.findall(r"(?m)^## (.+)$", (ROOT / "README.md").read_text()) ==
         ["Purpose", "The library on an index card", "Build", "Upstream pin", "Layout", "Status", "Licence"])
-    pins = json.loads((ROOT / "dependencies.json").read_text())["repos"]
-    report.check("BuiltRevisions", paths["revisions"] == {k: v.get("revision", v["ref"]) for k, v in pins.items()})
+    document = json.loads((ROOT / "dependencies.json").read_text())
+    version = json.loads((ROOT / "library.json").read_text())["version"]
+    report.check("PackageVersions", tomllib.loads((ROOT / "pyproject.toml").read_text())["project"]["version"] == version
+                 and f'__version__ = "{version}"' in (ROOT / "usdSolidOcct/__init__.py").read_text()
+                 and f'project(usdSolidOcct VERSION {version} ' in (ROOT / "CMakeLists.txt").read_text())
+    report.run("KitFlakeS05", check_pins, document, (ROOT / "flake.nix").read_text(), version)
+    report.run("BuiltRevisions", check_built_revisions, paths, document)
     print("== stage: installed native library", flush=True)
     prefix = Path(paths["bridge"])
     suffix = ".dylib" if sys.platform == "darwin" else ".so"
@@ -64,6 +74,7 @@ def main():
     print("== stage: recorded cache publication", flush=True)
     def cache_receipt():
         receipt = json.loads((ROOT / "docs/cache-receipt.json").read_text())
+        assert receipt["version"] == version and receipt["pins"] == document["repos"]
         assert receipt["pushExitCode"] == 0 and receipt["verifiedClosurePaths"] >= len(closure)
         assert receipt["configuredCachePaths"] + receipt["upstreamCachePaths"] == receipt["verifiedClosurePaths"]
         for key in ("bridge", "schema", "validators", "consumer"):

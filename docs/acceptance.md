@@ -1,6 +1,6 @@
 # Acceptance results
 
-Measured on aarch64-darwin with OCCT 7.9.3 and usdSolid v0.1.0. The [machine-readable record](acceptance.json) identifies the compiled artifact and pinned upstream revision. All 20 native UsdSolid validators are loaded; missing validators fail the gate.
+Measured for v0.1.4 on aarch64-darwin with OCCT 7.9.3 and usdSolid v0.1.4. The [machine-readable record](acceptance.json) identifies the compiled artifact and pinned upstream revisions. All 20 native UsdSolid validators are loaded; missing validators fail the gate.
 
 ## Native reference shapes
 
@@ -88,9 +88,9 @@ All eleven components pass with 631 faces. Every exported stage has zero finding
 
 Seven cases change face counts because writing splits full-period faces; one of these also has invalid derived trims. The legacy cube lacks the required region-count attribute. The pcurve-free cone cannot retain every face in its solid shell and raises an error. The tolerance-stressed cylinder misses the volume threshold. These are distinct from the eleven passing toolbox components.
 
-The toolchain v0.3.0 generator has no kit kind. Following usdSolid, this repository runs structure rules S01/S25/S26 and explicit kit manifest, README, dependency and install checks. Native Python uses the hub ABI; the source test runner delegates binding checks to it. No package installation or setuptools is required.
+The toolchain v0.3.10 generator has no kit kind. This repository runs shared structure rules S01/S04/S25/S26 and explicit kit manifest, README and install checks. KitFlakeS05 enforces release-tag inputs and version agreement while retaining the external OpenUSD fork URLs. Native Python uses the hub ABI; the source test runner delegates binding checks to it. No package installation or setuptools is required.
 
-Only aarch64-darwin execution is proven. The x86_64-linux derivation evaluates, but it was not built or executed. The single flake-check attempt passed on aarch64-darwin with the documented deployment registry overrides.
+Only aarch64-darwin execution is proven. Linux build and execution were not tested for this release. The current flake-check outcome is recorded in [public re-pin verification](public-repin.md).
 
 ## Usage boundaries
 
@@ -102,15 +102,15 @@ The public shared library and CMake export are exercised by a separate installed
 
 | Check | Result |
 |---|---|
-| Source gate | 28 checks, 0 failed, 0 not run |
-| Source pytest | 56 passed |
+| Source gate | See the current [verification record](verification.json) |
+| Source pytest | See the current [verification record](verification.json) |
 | Native CTest | 4 passed |
 | Installed consumer CTest | 1 passed |
-| Nix flake check | PASS, one attempt; native, installed consumer and acceptance derivations |
+| Nix flake check | See [public re-pin verification](public-repin.md); one offline attempt |
 | Static OCCT archives | 0 across 77 bridge closure paths |
 | Cache publication | 90 closure narinfos verified after recursive push |
-| Linux evaluation | PASS; build and execution NOT PROVEN |
+| Linux | Not tested for this release |
 
-The [cache receipt](cache-receipt.json) records matching StorePath and NAR hashes for all 90 closure entries at publication: 74 served by the configured cache and 16 by its configured upstream substitute. All five root artifacts were verified in the configured cache. This proves publication metadata and hash agreement, not a cold restore. The gate rejects a receipt whose native artifact names differ from the current runtime.
+The [cache receipt](cache-receipt.json) records matching StorePath and NAR hashes for all 90 closure entries, all served by the configured cache. All five root artifacts were verified there. This proves publication metadata and hash agreement, not a cold restore. The gate rejects a receipt whose version, pins or native artifact names differ from the current runtime.
 
 The [verification record](verification.json) captures these totals. The public flake URLs were resolved through the documented external deployment registry; direct public resolution was not tested.

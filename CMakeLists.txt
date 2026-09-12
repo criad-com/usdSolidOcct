@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(usdSolidOcct VERSION 0.1.3 LANGUAGES CXX)
+project(usdSolidOcct VERSION 0.1.4 LANGUAGES CXX)
 find_package(pxr CONFIG REQUIRED)
 find_package(usdSolid CONFIG REQUIRED)
 find_package(OpenCASCADE CONFIG REQUIRED COMPONENTS FoundationClasses ModelingData ModelingAlgorithms)

@@ -47,12 +47,28 @@ env -u PYTHONPATH python3 tools/nix_local.py build .#runtime --out-link result-r
 
 The helper passes explicit input overrides; deployment addresses and lockfiles
 remain outside version control. The public inputs use the published repository
-names. See the [native build contract](https://github.com/criad-com/usdaeco-toolchain/blob/v0.3.9/docs/native.md).
+names and release tags. See the [native build contract](https://github.com/criad-com/usdaeco-toolchain/blob/v0.3.10/docs/native.md).
+
+For an offline check, supply local checkouts at the pinned releases through
+`--override-input aeco-toolchain "$AECO_HUB"`,
+`--override-input usdaeco-toolchain "$AECO_KIT"`, and
+`--override-input usdSolid "$USD_SOLID_SOURCE"`; also override the toolchain's
+`core` test input and external OpenUSD sources if they are not cached.
+Run `nix flake check --offline --no-write-lock-file` with those overrides.
+Use `git+file:` URLs with exact revisions to retain build provenance.
+
+After a successful runtime rebuild, publish its closure with
+`env -u PYTHONPATH python3 tools/push_cache.py` using the configured external
+registry, then run the gate. Set `"pushFullClosure": true` in that external
+registry to publish dependencies normally delegated to an upstream cache.
+The receipt must come from that build. Regenerate the measured geometry record
+with `env -u PYTHONPATH python3 tools/record_acceptance.py --publish`.
 
 ## Upstream pin
 
-Requires `usdSolid >=0.1,<0.2`; tested against v0.1.0, OCCT 7.9.3 and the
-hub's development OpenUSD. The [source record](docs/upstream.md) identifies
+Requires `usdSolid >=0.1,<0.2`; pins v0.1.4, aeco-toolchain v0.4.0 and
+usdaeco-toolchain v0.3.10. The range is unchanged. This pin set was rebuilt with
+OCCT 7.9.3 and the hub's development OpenUSD. The [source record](docs/upstream.md) identifies
 the extracted code and its limitations. Exact refs are in `dependencies.json`.
 
 ## Layout
@@ -64,10 +80,17 @@ Installed artifacts use `lib/libusdSolidOcct.dylib` (`.so` on Linux),
 
 ## Status
 
-Version 0.1.3 pins toolchain v0.3.9 with its Python package version fix.
-Native verification remains pending; see the [prior build blocker](BLOCKED.md). The following
-geometry results were rechecked using the cached 0.1.1 runtime; they do not
-establish a successful 0.1.3 build.
+Version 0.1.4 updates all three family inputs to public release tags.
+The usdSolid source input reuses its native packages with explicit schema,
+validator and fixture sources at their unchanged upstream revisions.
+The native runtime was rebuilt and all 90 closure paths were published and
+verified. All 73 regenerated output layers, 40 fixture layers and the generated
+schema are byte-identical to the previous runtime. See the
+[current verification record](docs/public-repin.md) for checks and the remaining
+public-access verification for usdSolid. The native gate passes 31 checks and
+pytest passes 61 tests. The single offline flake check was interrupted after
+expanding into additional bootstrap/source builds; its completion remains
+for review.
 
 Twelve native fixtures pass two round trips with all 20 validators,
 equal face counts after periodic splitting, and relative volume error below 1e-9.

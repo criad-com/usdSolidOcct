@@ -1,6 +1,6 @@
 {
   "name": "usdSolidOcct",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "kind": "kit",
   "tier": "toolchain",
   "licence": "MIT",

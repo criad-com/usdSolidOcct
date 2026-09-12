@@ -1,5 +1,22 @@
 # Changelog
 
+## 0.1.4
+
+- public re-pin: aeco-toolchain v0.4.0; usdaeco-toolchain v0.3.10; usdSolid v0.1.4.
+- Consume usdSolid as a source input with explicit, unchanged upstream schema,
+  validator and fixture revisions; retain the existing requirement range.
+- Record checked forge revisions and observed public release revisions.
+  Add shared S04 and a kit S05 equivalent for release tags and version agreement,
+  preserving the external OpenUSD fork URLs.
+- Advance package and CMake metadata together; update the local core override
+  to the toolchain's v0.9.2 test input. Record the new native receipt and
+  remaining public-resolution and full-flake-check limits.
+- Rebuild the native runtime, republish all 90 closure paths and regenerate its
+  receipt and acceptance record. Confirm 73 exported layers, 40 fixture layers
+  and the generated schema are byte-identical; geometry measurements are unchanged.
+- Add an explicit acceptance publication command and an external-registry option
+  to publish the complete closure without relying on an upstream cache.
+
 ## 0.1.3
 
 - Re-pin usdaeco-toolchain to v0.3.9 for its Python package version fix; other dependency pins and requirement ranges unchanged.

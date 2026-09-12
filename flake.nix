@@ -1,26 +1,41 @@
 {
   description = "UsdSolid BrepArray and OCCT bridge";
   inputs = {
-    aeco-toolchain.url = "github:criad-com/aeco-toolchain?ref=34a29f51a232ac77d5e9f55431e537c426724035";
-    usdaeco-toolchain.url = "github:criad-com/usdaeco-toolchain?ref=v0.3.9";
+    aeco-toolchain.url = "github:criad-com/aeco-toolchain?ref=v0.4.0";
+    usdaeco-toolchain.url = "github:criad-com/usdaeco-toolchain?ref=v0.3.10";
     usdaeco-toolchain.inputs.aeco-toolchain.follows = "aeco-toolchain";
     nixpkgs.follows = "aeco-toolchain/nixpkgs";
-    usdSolid.url = "github:criad-com/usdSolid?ref=v0.1.0";
-    usdSolid.inputs.aeco-toolchain.follows = "aeco-toolchain";
-    usdSolid.inputs.usdaeco-toolchain.follows = "usdaeco-toolchain";
+    usdSolid.url = "github:criad-com/usdSolid?ref=v0.1.4";
+    usdSolid.flake = false;
+    upstream-schema = {
+      url = "github:jensjebens/OpenUSD?rev=1f6d6d31f1cbeed452b4e1c312bf974d0519d71d";
+      flake = false;
+    };
+    upstream-validators = {
+      url = "github:jensjebens/OpenUSD?rev=152c37a46c8cb71fbe1363772f1ccffe6e91c78b";
+      flake = false;
+    };
     upstream = {
       url = "github:jensjebens/OpenUSD?rev=d618f8ac62cefa02f6765d8e3784ea503195ce86";
       flake = false;
     };
   };
-  outputs = { self, nixpkgs, aeco-toolchain, usdaeco-toolchain, usdSolid, upstream }:
+  outputs = { self, nixpkgs, aeco-toolchain, usdaeco-toolchain, usdSolid, upstream,
+              upstream-schema, upstream-validators }:
     let
+      # Reuse the source pin's packages with this flake's explicit inputs.
+      solidOutputs = (import (usdSolid + "/flake.nix")).outputs {
+        self = usdSolid;
+        inherit nixpkgs aeco-toolchain usdaeco-toolchain upstream-validators;
+        upstream = upstream-schema;
+        upstream-fixtures = upstream;
+      };
       eachSystem = nixpkgs.lib.genAttrs [ "aarch64-darwin" "x86_64-linux" ];
       forSystem = system:
         let
           pkgs = nixpkgs.legacyPackages.${system};
           kit = usdaeco-toolchain.lib.forSystem system;
-          solid = usdSolid.packages.${system};
+          solid = solidOutputs.packages.${system};
           occt = aeco-toolchain.packages.${system}.occt;
           bridge = usdaeco-toolchain.lib.buildNativePlugin {
             inherit system;
@@ -76,6 +91,8 @@
                 usdaeco-toolchain = usdaeco-toolchain.rev;
                 usdSolid = usdSolid.rev;
                 upstream = upstream.rev;
+                upstream-schema = upstream-schema.rev;
+                upstream-validators = upstream-validators.rev;
               };
             }}
             JSON

@@ -1,6 +1,6 @@
 [project]
 name = "usdsolidocct-kit"
-version = "0.1.3"
+version = "0.1.4"
 description = "UsdSolid and OCCT bridge source checks"
 requires-python = ">=3.11"
 license = "MIT"
