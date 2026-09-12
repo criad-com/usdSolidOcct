@@ -34,7 +34,7 @@ def main():
     for row in check_structure(ROOT, only=["S01", "S04", "S25", "S26"]):
         report.add(row)
     report.check("KitManifest", json.loads((ROOT / "library.json").read_text()) == {
-        "name": "usdSolidOcct", "version": "0.1.4", "kind": "kit", "tier": "toolchain", "licence": "MIT",
+        "name": "usdSolidOcct", "version": "0.1.5", "kind": "kit", "tier": "toolchain", "licence": "MIT",
         "requires": {"usdSolid": ">=0.1,<0.2"}})
     report.check("KitReadme", re.findall(r"(?m)^## (.+)$", (ROOT / "README.md").read_text()) ==
         ["Purpose", "The library on an index card", "Build", "Upstream pin", "Layout", "Status", "Licence"])

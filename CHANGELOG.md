@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.5
+
+- Make public re-pin verification self-contained with the recorded v0.1.4
+  gate results and cache publication counts.
+- Align package, CMake and gate versions; identify the existing native evidence
+  as v0.1.4. Native rebuild and cache receipt regeneration remain pending review.
+
 ## 0.1.4
 
 - public re-pin: aeco-toolchain v0.4.0; usdaeco-toolchain v0.3.10; usdSolid v0.1.4.

@@ -83,7 +83,9 @@ source-fetch derivations from running.
 - Anonymous access to the public usdSolid repository failed, so v0.1.4's
   public tag and orphan revision could not be independently verified.
   The requested tag is retained. Public resolution and recording that revision
-  remain for review; see [the remaining blocker](../BLOCKED.md).
+  remain unverified. The v0.1.4 runtime built from the checked forge revisions
+  passed 31 checks and 61 tests; its cache receipt records 90/90 verified
+  closure paths.
 - Shared S05 assumes family-owned URLs for every input, including external
   OpenUSD sources. KitFlakeS05 preserves those fork URLs while enforcing the
   release-tag and version rules; shared S04 checks the pin/range contract.

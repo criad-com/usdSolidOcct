@@ -1,5 +1,5 @@
 {
-  "version": "0.1.4",
+  "version": "0.1.5",
   "pins": {
     "aeco-toolchain": {
       "repo": "aeco-toolchain",
@@ -37,7 +37,7 @@
       "ref": "152c37a46c8cb71fbe1363772f1ccffe6e91c78b"
     }
   },
-  "publishedAt": "2026-09-12T13:38:22.235103+00:00",
+  "publishedAt": "2026-09-12T15:49:15.633497+00:00",
   "platform": "aarch64-darwin",
   "pushExitCode": 0,
   "verifiedClosurePaths": 90,
@@ -46,8 +46,8 @@
   "verification": "All closure narinfos matched local StorePath and NarHash; roots verified in the configured cache after recursive push",
   "artifacts": {
     "bridge": {
-      "store": "cdi7p7xzwimxny30ldyf1xb9crxl077x-usdSolidOcct-0.1.4",
-      "narHash": "sha256:15j0gha9addbhz6r6k9dv2zp1dqhybhrxdd2rhypg5370q33hh79",
+      "store": "lzb6aw6qyf4y7m5lk122nv5289rc6bz2-usdSolidOcct-0.1.5",
+      "narHash": "sha256:1cr36p17zwj0h4m4lw4ak3bvggxj4rxlrc0clb3mkrfwbc8d67da",
       "narSize": 1281488,
       "cache": "configured"
     },
@@ -64,14 +64,14 @@
       "cache": "configured"
     },
     "consumer": {
-      "store": "iqkhg1n0b0hkk8d32w3w3af0qlcp5m5v-usdSolidOcct-installed-consumer",
-      "narHash": "sha256:0rpicwnkj97wccxvp8pkv0fva0gbh37kxa8x8s6c8p0mxdqcgwz9",
+      "store": "zqw1ss5n2743ahb83xl3dly0l33bibbd-usdSolidOcct-installed-consumer",
+      "narHash": "sha256:14x6y4al2n9870vclby9ad9gj2w4s00yyh4y1b63vf3q7y1ymlw0",
       "narSize": 108112,
       "cache": "configured"
     },
     "runtime": {
-      "store": "sa63z78yf7dj7a83d44749sj3fc43qr7-usdSolidOcct-runtime",
-      "narHash": "sha256:0fhyhab3y6r19svls5am703zw6kgp8g38akjm90hwcxiiz78z624",
+      "store": "mxv8xc4ca9l4bpcqbwgfnmnmi9w4klbv-usdSolidOcct-runtime",
+      "narHash": "sha256:02df17rjy2bjx09nda9a8vyd3l4izs944n9lfiz8bqi8knvzzrs5",
       "narSize": 1512,
       "cache": "configured"
     }

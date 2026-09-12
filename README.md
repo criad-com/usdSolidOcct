@@ -80,15 +80,19 @@ Installed artifacts use `lib/libusdSolidOcct.dylib` (`.so` on Linux),
 
 ## Status
 
-Version 0.1.4 updates all three family inputs to public release tags.
+Version 0.1.5 makes the verification documentation self-contained and aligns
+release metadata. The evidence below records the v0.1.4 runtime; the v0.1.5
+native rebuild and cache receipt regeneration remain pending review.
+
+Version 0.1.4 updated all three family inputs to public release tags.
 The usdSolid source input reuses its native packages with explicit schema,
 validator and fixture sources at their unchanged upstream revisions.
 The native runtime was rebuilt and all 90 closure paths were published and
 verified. All 73 regenerated output layers, 40 fixture layers and the generated
 schema are byte-identical to the previous runtime. See the
-[current verification record](docs/public-repin.md) for checks and the remaining
-public-access verification for usdSolid. The native gate passes 31 checks and
-pytest passes 61 tests. The single offline flake check was interrupted after
+[v0.1.4 verification record](docs/public-repin.md) for checks and the remaining
+public-access verification for usdSolid. The native gate passed 31 checks and
+pytest passed 61 tests. The single offline flake check was interrupted after
 expanding into additional bootstrap/source builds; its completion remains
 for review.
 
